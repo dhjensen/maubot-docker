@@ -1,0 +1,21 @@
+name: NTFY maubot
+
+services:
+  maubot:
+    build:
+      context: .
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - maubot-data:/data
+    ports:
+      - "127.0.0.1:29316:29316"
+    networks:
+      - nginx-proxy-manager_frontend
+
+networks:
+  nginx-proxy-manager_frontend:
+    driver: bridge
+    external: true
+
+volumes:
+  maubot-data:
