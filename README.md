@@ -5,5 +5,5 @@
 ## .env example
 
 ```bash
-MAUBOT-EMOJI=version
+MAUBOT_EMOJI=version
 ```
