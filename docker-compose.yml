@@ -4,13 +4,17 @@ services:
   maubot:
     build:
       context: .
+      tags:
+        - "dhjensen/maubot-emoji:v${MAUBOT-EMOJI}"
     volumes:
-      - /etc/timezone:/etc/timezone
+      - /etc/timezone:/etc/timezone:ro
       - maubot-data:/data
     ports:
       - "127.0.0.1:29316:29316"
     networks:
       - nginx-proxy-manager_frontend
+    labels:
+      - wud.tag.include=^v\d+\.\d+\.\d+$$
 
 networks:
   nginx-proxy-manager_frontend:
