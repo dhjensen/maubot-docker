@@ -2,10 +2,8 @@ name: NTFY maubot
 
 services:
   maubot:
-    build:
-      context: .
-      tags:
-        - "dhjensen/maubot-emoji:v${MAUBOT-EMOJI}"
+    image: dhjensen/maubot-emoji:v${MAUBOT_EMOJI}
+    container_name: maubot
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - maubot-data:/data
