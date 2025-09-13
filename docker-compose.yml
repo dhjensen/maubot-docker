@@ -11,6 +11,7 @@ services:
       - "127.0.0.1:29316:29316"
     networks:
       - nginx-proxy-manager_frontend
+    restart: unless-stopped
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
 
