@@ -10,12 +10,17 @@ services:
     ports:
       - "127.0.0.1:29316:29316"
     networks:
+      - backend
       - nginx-proxy-manager_frontend
     restart: unless-stopped
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
+      - traefik.enable=true
 
 networks:
+  backend:
+    external: true
+    driver: bridge
   nginx-proxy-manager_frontend:
     driver: bridge
     external: true
